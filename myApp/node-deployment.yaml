@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: webapplicationtest.azurecr.io/nodetapp:latest
+        image: kubernetesappdevelopment.azurecr.io/mynode-app:latest
         ports:
         - containerPort: 3002
         env:
         - name: DOTNET_APP_SERVICE
-          value: "myapi-deployment.default.svc.cluster.local"  # Fully qualified domain name of the service
+          value: "mydotnet-app.default.svc.cluster.local"  # Fully qualified domain name of the service
         - name: DOTNET_APP_SERVICE_PORT
           value: "80"  # Port exposed by your .NET Core service
