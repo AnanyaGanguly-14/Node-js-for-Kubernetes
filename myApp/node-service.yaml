@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-app-service
+  name: node-app
 spec:
   selector:
     app: node-app
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 3002
   type: ClusterIP  # or ClusterIP (for internal services)
