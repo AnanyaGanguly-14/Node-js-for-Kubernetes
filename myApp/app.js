@@ -12,6 +12,13 @@ var valuesRouter = require('./routes/values');
 
 var app = express();
 
+// Clean setup for React â†” Node
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -28,11 +35,11 @@ app.use('/api/users', usersRouter);
 app.use('/api/Values', async (req, res, next) => {
   try {
     // Read the service name and port from environment variables
-    const serviceName = process.env.DOTNET_APP_SERVICE || 'localhost';
-    const servicePort = process.env.DOTNET_APP_SERVICE_PORT || '8080';
+    const serviceName = process.env.DOTNET_APP_SERVICE || 'http://dotnet-api';
+    const servicePort = process.env.DOTNET_APP_SERVICE_PORT || '80';
 
     // Construct the URL dynamically using the environment variables
-    const url = `http://${serviceName}:${servicePort}/api/Values/GetValue`;
+    const url = `${serviceName}:${servicePort}/api/Values`;
 
     // Make the HTTP request to the .NET Core service using the dynamic URL
     const response = await axios.get(url);
