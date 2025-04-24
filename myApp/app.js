@@ -54,8 +54,12 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.use(cors()); // This will allow all origins by default
-
+app.use(cors({
+  origin: (origin, callback) => {
+    callback(null, origin);
+  },
+  credentials: true
+}));
 
 var port = process.env.PORT || 3002;
 
