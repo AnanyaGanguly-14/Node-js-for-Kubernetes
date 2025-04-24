@@ -19,6 +19,6 @@ spec:
         - containerPort: 3002
         env:
         - name: DOTNET_APP_SERVICE
-          value: "mydotnet-app.default.svc.cluster.local"  # Fully qualified domain name of the service
+          value: "http://mydotnet-app.default.svc.cluster.local"  # Fully qualified domain name of the service
         - name: DOTNET_APP_SERVICE_PORT
           value: "80"  # Port exposed by your .NET Core service
