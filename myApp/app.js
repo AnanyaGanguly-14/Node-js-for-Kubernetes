@@ -55,10 +55,9 @@ app.use(function(req, res, next) {
 });
 
 app.use(cors({
-  origin: (origin, callback) => {
-    callback(null, origin);
-  },
-  credentials: true
+  origin: 'http://134.33.165.136', // Allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false
 }));
 
 var port = process.env.PORT || 3002;
