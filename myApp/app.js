@@ -12,12 +12,7 @@ var valuesRouter = require('./routes/values');
 
 var app = express();
 
-// Clean setup for React â†” Node
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
