@@ -54,11 +54,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.use(cors({
-  origin: 'http://134.33.165.136', // Allow all origins
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false
-}));
+app.use(cors());
 
 var port = process.env.PORT || 3002;
 
